@@ -1,5 +1,13 @@
 
 class Store {
+
+    async renderSeason (newSeason)  {
+        if (this.state.season === +newSeason) return;
+        this.update({
+            season: +newSeason,
+        });
+    };
+
     /**
      *
      * @param {import('./types').sorting} newSorting
@@ -18,7 +26,7 @@ class Store {
         this.update({
             search: newSearch,
         });
-    }
+    };
 
     async loadList () {
         if (this.state.previews.length > 0) {
@@ -28,7 +36,7 @@ class Store {
             });
         }
 
-        const response = await fetch('https://podcast-api.netlify.app/shows');
+        const response = await fetch('https://podcast-api.netlify.app/shows', { cache: "force-cache" });
 
         if (!response.ok) {
             return this.update({
@@ -55,7 +63,7 @@ class Store {
         });
 
         if (!id) throw new Error('"id" is required');
-        const response = await fetch(`https://podcast-api.netlify.app/id/${ id }`);
+        const response = await fetch(`https://podcast-api.netlify.app/id/${ id }`, { cache: "force-cache" });
 
         if (!response.ok) {
             return this.update({
@@ -68,6 +76,17 @@ class Store {
         return this.update({
             phase: 'single',
             single: data
+        });
+    }
+
+    async loadFavorites () {
+        this.update({
+            phase: 'loading'
+        });
+
+        return this.update({
+            phase: 'list',
+            favorite: []
         });
     }
 
@@ -84,7 +103,6 @@ class Store {
 
         this.state = nextState;
     }
-
 
     /**
      * @param {import('./types').subscription} newSubscription
@@ -106,8 +124,7 @@ class Store {
             throw new Error('Subscription does not exist');
         }
 
-        this.subscriptions = this.subscriptions
-            .filter(item => item !== newSubscription);
+        this.subscriptions = this.subscriptions.filter(item => item !== newSubscription);
     }
 
     constructor () {
@@ -124,6 +141,7 @@ class Store {
             previews: [],
             single: null,
             sorting: 'a-z',
+            season: 1,
         };
 
         this.loadList();

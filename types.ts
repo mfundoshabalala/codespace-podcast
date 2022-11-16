@@ -39,6 +39,8 @@ export type state = {
     single: null | show
     sorting: sorting
     search: string
+    season: number
+    favorite: preview[]
 }
 
 export type subscription = (state: state) => void

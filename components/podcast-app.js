@@ -27,10 +27,10 @@ class Component extends LitElement {
 
     render() {
         // const loadSingleHandler = () => store.loadSingle('10182')
-        const loadListHandler = () => store.loadList()
+        // const loadListHandler = () => store.loadList()
 
         if (this.phase === 'loading') {
-            return html`<div>Loading....</div>`
+            return html`<podcast-loader></podcast-loader>`
         }
 
         if (this.phase === 'error') {
@@ -48,7 +48,6 @@ class Component extends LitElement {
         if (this.phase === 'single') {
             return html`
                 <div>
-                    <button @click="${loadListHandler}">Go to list</button>
                     <podcast-view-single></podcast-view-single>
                 </div>
             `

@@ -14,18 +14,21 @@ class Component extends LitElement {
 		div {
 			display: flex;
 			justify-content: space-around;
+			padding: 1rem 0.5rem 2rem;
+			gap: 0.5rem;
 		}
 
 		input {
 			width: 15rem;
-			padding: 1rem 1.5rem;
+			padding: 0.75rem;
 			border-radius: 0.25rem;
 			border: 1px solid #999;
 			outline: none;
+			font-size: 1.05rem;
 		}
 
 		select {
-			padding: 1rem 1.5rem;
+			padding: 0.75rem;
 			border-radius: 0.25rem;
 			border: 1px solid #999;
 			outline: none;
@@ -55,7 +58,6 @@ class Component extends LitElement {
 		return html`
 			<div>
 				<input @input="${ inputHandler }" value="${ this.search }" placeholder="Search movie title">
-
 				<select @change="${ changeHandler }">
 					<option value="a-z" .selected="${ this.sorting === 'a-z' }">A - Z</option>
 					<option value="z-a" .selected="${ this.sorting === 'z-a' }">Z - A</option>
