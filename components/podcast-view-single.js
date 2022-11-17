@@ -12,15 +12,9 @@ class Component extends LitElement {
 
     static styles = css`
         h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin: 0.75rem 0;
-        }
-
-        div {
-            padding: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 0 2rem;
         }
 
         button {
@@ -48,6 +42,13 @@ class Component extends LitElement {
             gap: 0.25rem;
             list-style-type: none;
             height: 25rem;
+        }
+
+        div {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         a {

@@ -30,7 +30,7 @@ export type show = {
     updated: string
 }
 
-export type phase = 'loading' | 'list' | 'single' | 'error | favorite'
+export type phase = 'loading' | 'list' | 'single' | 'error' | 'favorite'
 export type sorting = 'a-z' | 'z-a' | 'oldest-latest' | 'latest-oldest'
 
 export type state = {

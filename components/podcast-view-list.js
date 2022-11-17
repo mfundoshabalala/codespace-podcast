@@ -32,12 +32,28 @@ class Component extends LitElement {
             text-align: center;
         }
 
+        div {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         a {
             box-shadow: 0 0 3px #999;
             padding: 0.5rem 2rem;
             border-radius: 0.25rem;
             cursor: pointer;
             transition: 250ms all cubic-bezier(0.86, 0, 0.07, 1)
+        }
+
+        a:hover {
+            color: white;
+            background-color: #444;
+        }
+
+        a:active {
+            background-color: #222;
         }
 
         img {
@@ -181,7 +197,10 @@ class Component extends LitElement {
         const favoritesHandler = async () => await store.loadFavorites();
 
         return html`
+        <div>
+			<span></span>
             <a @click="${ favoritesHandler }">Go to favorites ❤️</a>
+		</div>
             <header>
                 <h1>Podcast List</h1>
             </header>

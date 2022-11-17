@@ -37,6 +37,30 @@ class Component extends LitElement {
             max-width: 100%;
         }
 
+		div {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        a {
+            box-shadow: 0 0 3px #999;
+            padding: 0.5rem 2rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: 250ms all cubic-bezier(0.86, 0, 0.07, 1)
+        }
+
+        a:hover {
+            color: white;
+            background-color: #444;
+        }
+
+        a:active {
+            background-color: #222;
+        }
+
         h2 {
             text-align: center;
             margin: 0;
@@ -181,7 +205,7 @@ class Component extends LitElement {
 			<a @click="${ singleHandler }">Go to single</a>
 		</div>
 		<header>
-			<h1>Podcast List</h1>
+			<h1>My Favourite Shows</h1>
 		</header>
 		<podcast-controls></podcast-controls>
 		${ list.length > 0 ? html`<ul>${ list }</ul>` : html`<div>No matches</div>` }
