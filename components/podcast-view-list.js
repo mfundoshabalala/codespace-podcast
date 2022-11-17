@@ -32,6 +32,14 @@ class Component extends LitElement {
             text-align: center;
         }
 
+        a {
+            box-shadow: 0 0 3px #999;
+            padding: 0.5rem 2rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: 250ms all cubic-bezier(0.86, 0, 0.07, 1)
+        }
+
         img {
             max-width: 100%;
         }

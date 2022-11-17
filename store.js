@@ -85,7 +85,7 @@ class Store {
         });
 
         return this.update({
-            phase: 'list',
+            phase: 'favorite',
             favorite: []
         });
     }

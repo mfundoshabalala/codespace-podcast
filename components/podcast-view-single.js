@@ -91,8 +91,6 @@ class Component extends LitElement {
 
     disconnectedCallback () { this.disconnectStore(); }
 
-
-
     render () {
 
         const previews = this.previews;

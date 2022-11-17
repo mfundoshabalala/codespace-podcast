@@ -53,6 +53,14 @@ class Component extends LitElement {
             `
         }
 
+        if (this.phase === 'favorite') {
+            return html`
+                <div>
+                    <podcast-view-favorites></podcast-view-favorites>
+                </div>
+            `
+        }
+
         throw new Error('Invalid view active')
     }
 }
